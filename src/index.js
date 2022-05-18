@@ -1,13 +1,14 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import Button from './Button';
+import ReactDOM from 'react-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './Home';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-    <Button />
-  </React.StrictMode>
+ReactDOM.render(
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/test" element={<Home />} />
+    </Routes>
+  </BrowserRouter>,
+  document.getElementById('root'),
 );
