@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import Header from './Header';
-import Navigator from './Navigator';
+import Header from '../Header';
+import Navigator from '../Navigator';
 
 const Container = styled.div`
   display: flex;
@@ -14,7 +14,7 @@ const Container = styled.div`
 
 // 후보 공약 페이지
 
-function Candidate() {
+function CandidatePromise() {
   return (
     <Container>
       <Header />
@@ -23,4 +23,4 @@ function Candidate() {
   );
 }
 
-export default Candidate;
+export default CandidatePromise;

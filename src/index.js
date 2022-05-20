@@ -11,9 +11,8 @@ ReactDOM.render(
     <Reset />
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/test" element={<Home />} />
-      <Route path="/Candidate" element={<Candidate />} />
-      <Route path="/Polls" element={<Polls />} />
+      <Route path="/candidate" element={<Candidate />} />
+      <Route path="/polls" element={<Polls />} />
     </Routes>
   </BrowserRouter>,
   document.getElementById('root'),
