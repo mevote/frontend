@@ -8,19 +8,17 @@ const Container = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  width: 100vh;
-  padding: 24px;
-
-  max-width: 1020px;
+  width: 100%;
+  height: 6rem;
   position: sticky;
   top: 0;
   background-color: #595758;
-  font-size: 24px;
+  font-size: 28px;
   font-weight: bold;
   z-index: 1;
 
   img {
-    margin-left: 5px;
+    margin-left: 10px;
   }
 `;
 
@@ -30,7 +28,11 @@ const Location = styled.div`
   color: white;
 `;
 
-const Menu = styled.div``;
+const Menu = styled.div`
+  img {
+    margin-right: 30px;
+  }
+`;
 const Blank = styled.div``;
 
 function Header() {
@@ -38,10 +40,10 @@ function Header() {
     <Container>
       <Blank />
       <Location>
-        대치 1동 <img src={check} width="20" height="20" alt="button" />
+        대치 1동 <img src={check} width="24" height="24" alt="button" />
       </Location>
       <Menu>
-        <img src={menu} width="20" height="20" alt="button" />
+        <img src={menu} width="24" height="24" alt="button" />
       </Menu>
     </Container>
   );
