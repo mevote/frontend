@@ -33,12 +33,17 @@ function useCandidate() {
       .then((data) => {
         var xml = new XMLParser().parseFromString(data);
         var candidateArray = [];
-
+        // console.dir(xml.children[1].children[0]);
         xml.children[1].children[0].children.forEach((item) => {
           const person = {
+            giho: item.children[7],
             name: item.children[10],
+            gender: item.children[12],
             jDName: item.children[9],
             age: item.children[14],
+            addr: item.children[15],
+            job: item.children[17],
+            edu: item.children[19],
           };
           candidateArray.push(person);
         });
@@ -46,14 +51,11 @@ function useCandidate() {
         setState((prev) => ({
           ...prev,
           total: xml.children[1].children[3].value,
-          x: candidateArray,
-          candidate: xml.children[1].children[0].children,
+          candidates: candidateArray,
         }));
       })
       .catch((err) => console.log(err));
   }, []);
-
-  console.log(state);
 
   return { state };
 }
