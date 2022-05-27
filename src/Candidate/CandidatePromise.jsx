@@ -5,11 +5,9 @@ import Navigator from '../Navigator';
 
 const Container = styled.div`
   display: flex;
-  position: absolute;
-  top: 0;
-  left: 0;
   max-width: 1020px;
   flex-direction: column;
+  margin: auto;
 `;
 
 // 후보 공약 페이지
