@@ -65,6 +65,11 @@ async function code_info() {
    * sgId : 선거Id
    * sgName : 선거명
    * sgTypecode : 선거 종류 코드
+   *  - 2번: 국회의원 선거
+   *  - 3번: 시 도지사 선거
+   *  - 4번 : 구,시,군의 장 선거
+   *  - 5번 : 시·도의회의원선거
+   *  - 11번 : 교육감선거
    * sgVotedate : 선거 일자
    */
   let url = 'http://apis.data.go.kr/9760000/CommonCodeService/getCommonSgCodeList';
@@ -99,8 +104,24 @@ async function candidate_info() {
    * 요청 정보 *
    *
    * sgTypeCode : 선거 종류 코드
+   *  - 2번: 국회의원 선거
+   *  - 3번: 시 도지사 선거
+   *  - 4번 : 구,시,군의 장 선거
+   *  - 5번 : 시·도의회의원선거
+   *  - 11번 : 교육감선거
    * sggName : 선거구명
    * sdName : 시도명
+   */
+
+  /*
+   * 응답 메세지 명세
+   * huboid : 후보 아이디
+   * sggName : 선거구명 (ex. 마포구)
+   * sdName : 시도명(ex. 서울특별시)
+   * giho : 기호
+   * jDName : 정당 이름 (ex. 더불어민주당)
+   * name : 이름
+   * gender, birthday, age, addr, job, edu, career1, career2
    */
 
   let url = 'http://apis.data.go.kr/9760000/PofelcddInfoInqireService/getPofelcddRegistSttusInfoInqire';
@@ -110,7 +131,7 @@ async function candidate_info() {
   let str1 = encodeURIComponent('서울특별시');
   let str2 = encodeURIComponent('마포구');
   let queryParams = '?' + encodeURIComponent('sgId') + '=' + encodeURIComponent(20220601);
-  queryParams += '&' + encodeURIComponent('sgTypecode') + '=' + encodeURIComponent('5');
+  queryParams += '&' + encodeURIComponent('sgTypecode') + '=' + encodeURIComponent('4');
   queryParams += '&' + encodeURIComponent('sdName') + '=' + str1;
   queryParams += '&' + encodeURIComponent('sggName') + '=' + str2;
   queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1');
