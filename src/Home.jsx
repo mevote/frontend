@@ -2,6 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import Header from './Header';
 import booth from './asset/image/booth.png';
+import useCandidate from './useCandidate';
 
 const Container = styled.div`
   display: flex;
@@ -92,6 +93,9 @@ const Profile = styled.div`
 `;
 
 function Home() {
+  const candidate = useCandidate();
+  console.log(candidate);
+
   return (
     <Container>
       <Header />
