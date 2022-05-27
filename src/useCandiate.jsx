@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import useFetch from './useFetch';
+import useAPI from './useAPI';
 
 // - 2번: 국회의원 선거
 // - 3번: 시 도지사 선거
@@ -8,7 +8,7 @@ import useFetch from './useFetch';
 // - 11번 : 교육감선거
 
 function useCandidate() {
-  const { customFetch } = useFetch();
+  const { customFetch } = useAPI();
   const [candidates, setCandidates] = useState();
 
   let url = 'http://apis.data.go.kr/9760000/PofelcddInfoInqireService/getPofelcddRegistSttusInfoInqire';
@@ -30,13 +30,11 @@ function useCandidate() {
     const fetchCandidate = async () => {
       const URL = url + queryParams;
       const json = await customFetch(URL);
-      console.log(json.getPofelcddRegistSttusInfoInqire.item);
-
       setCandidates([...json.getPofelcddRegistSttusInfoInqire.item]);
     };
 
     fetchCandidate();
-  });
+  }, []);
 
   return { candidates };
 }
