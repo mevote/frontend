@@ -112,7 +112,7 @@ function Home() {
       </Top>
       <Middle>
         <div>
-          <h1>강남구</h1>
+          <h1>마포구</h1>
           <p> 국회의원 선거 후보 6명</p>
         </div>
       </Middle>
