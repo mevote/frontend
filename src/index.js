@@ -4,8 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Reset from './styles/Reset';
 // import Home from './Home';
 import HomePage from './Homepage';
-import CandidateInformation from './Candidate/CandidateInformation';
-import CandidatePromise from './Candidate/CandidatePromise';
+import CandidateInformationpage from './Candidate/CandidateInformationpage';
 import Polls from './Polls';
 
 ReactDOM.render(
@@ -13,8 +12,7 @@ ReactDOM.render(
     <Reset />
     <Routes>
       <Route path="/" element={<HomePage />} />
-      <Route path="/candidateinformation" element={<CandidateInformation />} />
-      <Route path="/candidatepromise" element={<CandidatePromise />} />
+      <Route path="/candidateinformation" element={<CandidateInformationpage />} />
       <Route path="/polls" element={<Polls />} />
     </Routes>
   </BrowserRouter>,

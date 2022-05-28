@@ -2,7 +2,6 @@ import React from 'react';
 import styled from '@emotion/styled';
 import Header from '../Header';
 import Navigator from '../Navigator';
-import useCandidate from '../useCandidate';
 import PropTypes from 'prop-types';
 
 const Container = styled.div`
@@ -59,15 +58,16 @@ const DetailedInformation = styled.div`
 
 // 후보 정보 페이지
 
-const huboInfo = ({ jd_name, name, birthday, age, addr, edu }) => {
+const HuboInfo = ({ jd_name, name, birthday, age, addr, edu }) => {
+  console.log('hi');
   return (
     <div>
       <BriefInformationContainer>
         <BriefInformation>
           {jd_name} <br /> {name}
         </BriefInformation>
+        <CandidatePicture>사진</CandidatePicture>
       </BriefInformationContainer>
-      <CandidatePicture>사진</CandidatePicture>
       <DetailedInformationContainer>
         <DetailedInformation>생년월일: {birthday}</DetailedInformation>
         <DetailedInformation>연령: {age}</DetailedInformation>
@@ -78,9 +78,7 @@ const huboInfo = ({ jd_name, name, birthday, age, addr, edu }) => {
   );
 };
 
-const CandidateInformation = () => {
-  const { candidates } = useCandidate();
-  console.log(candidates);
+const CandidateInformation = ({ candidates }) => {
   return (
     <Container>
       <Header />
@@ -89,7 +87,7 @@ const CandidateInformation = () => {
         {candidates && // 여기서 null 인지 체크합니다.
           candidates.map((candidate) => {
             return (
-              <huboInfo
+              <HuboInfo
                 key={candidate.JD_NAME}
                 jd_name={candidate.JD_NAME}
                 name={candidate.NAME}
@@ -105,13 +103,11 @@ const CandidateInformation = () => {
   );
 };
 
-export default CandidateInformation;
-
 CandidateInformation.propTypes = {
   candidates: PropTypes.array,
 };
 
-huboInfo.propTypes = {
+HuboInfo.propTypes = {
   jd_name: PropTypes.string,
   name: PropTypes.string,
   birthday: PropTypes.string,
@@ -119,3 +115,5 @@ huboInfo.propTypes = {
   addr: PropTypes.string,
   edu: PropTypes.string,
 };
+
+export default CandidateInformation;
