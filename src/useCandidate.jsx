@@ -18,7 +18,7 @@ function useCandidate() {
   let str1 = encodeURIComponent('서울특별시');
   let str2 = encodeURIComponent('마포구');
   let queryParams = '?' + encodeURIComponent('sgId') + '=' + encodeURIComponent(20220601);
-  queryParams += '&' + encodeURIComponent('sgTypecode') + '=' + encodeURIComponent('5'); // 여기 번호를 수정해주면 됩니다.
+  queryParams += '&' + encodeURIComponent('sgTypecode') + '=' + encodeURIComponent('4'); // 여기 번호를 수정해주면 됩니다.
   queryParams += '&' + encodeURIComponent('sdName') + '=' + str1;
   queryParams += '&' + encodeURIComponent('sggName') + '=' + str2;
   queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1');
