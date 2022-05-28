@@ -1,5 +1,5 @@
 import React from 'react';
-import useCandidate from '../useCandiate';
+import useCandidate from '../useCandidate';
 import CandidateInformation from './CandidateInformation';
 
 function CandidateInformationpage() {
