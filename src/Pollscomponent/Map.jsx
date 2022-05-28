@@ -1,9 +1,8 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { RenderAfterNavermapsLoaded, NaverMap, Marker } from 'react-naver-maps';
+//terminal yarn add react-naver-maps 라이브러리 설치
 
-
-//terminal yarn add react-naver-maps 라이브러리
 
 const Container = styled.div`
   display: flex;
@@ -12,13 +11,11 @@ const Container = styled.div`
   text-align: center;
 `;
 
-//사전투표소와 본투표 API 받기
-// 받은 API '읍면동'으로 나누어서 사전투표소 및 본투표소 정보 얻기
-// 얻은 정보 마커로 표시
-// 
+//위치정보 받기 -ing
+//
 
 
-
+//위치정보 요청변수로 해서 사전투표소와 본투표 API 받기 -ing
 
 async function pre_Pollinfo() {
     /*
@@ -75,9 +72,11 @@ async function Pollinfo() {
     }
 }
 
-//받아온 주소를 위도경도로 변환해서 defalutCenter, Marker로 찍어주는 거 필요
+//받아온 주소를 위도경도로 변환하기 -ing
 
 
+
+//네이버 지도 api에 주소 입력해서 마커찍기 -ing
 
 function NaverMapAPI() {
     const navermaps = window.naver.maps;
@@ -113,6 +112,8 @@ function NaverMapAPI() {
     );
 }
 
+
+
 function Mapinfo() {
     return (
         <RenderAfterNavermapsLoaded
@@ -125,6 +126,9 @@ function Mapinfo() {
 }
 
 
+
+
+//출력
 
 function Map() {
     pre_Pollinfo();
