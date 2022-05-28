@@ -47,9 +47,7 @@ async function pre_Pollinfo() {
     }
   }
 
-
-
-async function Pollinfo() {
+async function main_Pollinfo() {
     let url = 'http://apis.data.go.kr/9760000/PolplcInfoInqireService2/getPolplcOtlnmapTrnsportInfoInqire';
     let serviceKey =
       'mEgRjbGoszWpu85%2FP4v%2BxYxEx3PyfA2KsFHWTXFaf8xQl3KrxhlGksFJW4SXtGs0u679zXMwOX87GnJKYk4Ukw%3D%3D';
@@ -72,11 +70,18 @@ async function Pollinfo() {
     }
 }
 
+
+function PollAPI() {
+  pre_Pollinfo();
+  main_Pollinfo();
+}
+
+
 //받아온 주소를 위도경도로 변환하기 -ing
 
 
 
-//네이버 지도 api에 주소 입력해서 마커찍기 -ing
+//네이버 지도 api에 변환한 위도경도 입력해서 마커찍기 -ing
 
 function NaverMapAPI() {
     const navermaps = window.naver.maps;
@@ -112,8 +117,6 @@ function NaverMapAPI() {
     );
 }
 
-
-
 function Mapinfo() {
     return (
         <RenderAfterNavermapsLoaded
@@ -131,8 +134,7 @@ function Mapinfo() {
 //출력
 
 function Map() {
-    pre_Pollinfo();
-    Pollinfo();
+    PollAPI();
     return (
         <Container>
             <Mapinfo />
