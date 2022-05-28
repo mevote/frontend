@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import Header from '../Header';
 import Navigator from '../Navigator';
 import useCandidate from '../useCandidate';
+import PropTypes from 'prop-types';
 
 const Container = styled.div`
   display: flex;
@@ -58,6 +59,25 @@ const DetailedInformation = styled.div`
 
 // 후보 정보 페이지
 
+const huboInfo = ({ jd_name, name, birthday, age, addr, edu }) => {
+  return (
+    <div>
+      <BriefInformationContainer>
+        <BriefInformation>
+          {jd_name} <br /> {name}
+        </BriefInformation>
+      </BriefInformationContainer>
+      <CandidatePicture>사진</CandidatePicture>
+      <DetailedInformationContainer>
+        <DetailedInformation>생년월일: {birthday}</DetailedInformation>
+        <DetailedInformation>연령: {age}</DetailedInformation>
+        <DetailedInformation>주소: {addr}</DetailedInformation>
+        <DetailedInformation>학력: {edu}</DetailedInformation>
+      </DetailedInformationContainer>
+    </div>
+  );
+};
+
 const CandidateInformation = () => {
   const { candidates } = useCandidate();
   console.log(candidates);
@@ -65,44 +85,37 @@ const CandidateInformation = () => {
     <Container>
       <Header />
       <Navigator />
-      <BriefInformationContainer>
-        <BriefInformation>
-          국민의 힘 <br /> 홍길동
-        </BriefInformation>
-        <CandidatePicture>사진</CandidatePicture>
-      </BriefInformationContainer>
-      <DetailedInformationContainer>
-        <DetailedInformation>생년월일: 1999년 9월 9일</DetailedInformation>
-        <DetailedInformation>연령: 만 9세</DetailedInformation>
-        <DetailedInformation>주소: 서울특별시 강남구 대치2동</DetailedInformation>
-        <DetailedInformation>학력: 연세대학교 xx전공</DetailedInformation>
-      </DetailedInformationContainer>
+      <div>
+        {candidates && // 여기서 null 인지 체크합니다.
+          candidates.map((candidate) => {
+            return (
+              <huboInfo
+                key={candidate.JD_NAME}
+                jd_name={candidate.JD_NAME}
+                name={candidate.NAME}
+                birthday={candidate.BIRTHDAY}
+                age={candidate.AGE}
+                addr={candidate.ADDR}
+                edu={candidate.EDU}
+              />
+            );
+          })}
+      </div>
     </Container>
   );
 };
 
 export default CandidateInformation;
 
-/*
-    <Container>
-      <Header />
-      <Navigator />
-      <BriefInformationContainer>
-        <BriefInformation>
-          국민의힘
-          <br />
-          강득구
-          <br />
-          비례대표
-        </BriefInformation>
-        <CandidatePicture>사진</CandidatePicture>
-      </BriefInformationContainer>
-      <DetailedInformationContainer>
-        <DetailedInformation>생년월일: 1999년 9월 9일</DetailedInformation>
-        <DetailedInformation>연령: 만 9세</DetailedInformation>
-        <DetailedInformation>주소: 서울특별시 강남구 대치2동</DetailedInformation>
-        <DetailedInformation>학력: 연세대학교 xx전공</DetailedInformation>
-      </DetailedInformationContainer>
-    </Container>
+CandidateInformation.propTypes = {
+  candidates: PropTypes.array,
+};
 
-*/
+huboInfo.propTypes = {
+  jd_name: PropTypes.string,
+  name: PropTypes.string,
+  birthday: PropTypes.string,
+  age: PropTypes.string,
+  addr: PropTypes.string,
+  edu: PropTypes.string,
+};
