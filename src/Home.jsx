@@ -129,7 +129,7 @@ function Home({ candidates }) {
       <Middle>
         <div>
           <h1>마포구</h1>
-          <p> 국회의원 선거 후보 {candidates.length} 명</p>
+          <p> 국회의원 선거 후보 {candidates && candidates.length} 명</p>
         </div>
       </Middle>
       <Bottom>
