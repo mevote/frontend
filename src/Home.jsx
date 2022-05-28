@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import Header from './Header';
 import booth from './asset/image/booth.png';
@@ -91,7 +92,25 @@ const Profile = styled.div`
   border-radius: 50%;
 `;
 
-function Home() {
+function Member({ giho, name, jd_name, age }) {
+  return (
+    <>
+      <Candidate>
+        <Column>
+          <h1>
+            {giho}. {name}
+          </h1>
+          <p>
+            {jd_name} {age}세
+          </p>
+        </Column>
+        <Profile />
+      </Candidate>
+    </>
+  );
+}
+
+function Home({ candidates }) {
   return (
     <Container>
       <Header />
@@ -108,49 +127,37 @@ function Home() {
       </Top>
       <Middle>
         <div>
-          <h1>강남구</h1>
-          <p> 국회의원 선거 후보 6명</p>
+          <h1>마포구</h1>
+          <p> 국회의원 선거 후보 5 명</p>
         </div>
       </Middle>
       <Bottom>
-        <Candidate>
-          <Column>
-            <h1>1. 김한규</h1>
-            <p> 더불어민주당 45세</p>
-          </Column>
-          <Profile />
-        </Candidate>
-        <Candidate>
-          <Column>
-            <h1>1. 김한규</h1>
-            <p> 더불어민주당 45세</p>
-          </Column>
-          <Profile />
-        </Candidate>
-        <Candidate>
-          <Column>
-            <h1>1. 김한규</h1>
-            <p> 더불어민주당 45세</p>
-          </Column>
-          <Profile />
-        </Candidate>
-        <Candidate>
-          <Column>
-            <h1>1. 김한규</h1>
-            <p> 더불어민주당 45세</p>
-          </Column>
-          <Profile />
-        </Candidate>
-        <Candidate>
-          <Column>
-            <h1>1. 김한규</h1>
-            <p> 더불어민주당 45세</p>
-          </Column>
-          <Profile />
-        </Candidate>
+        {candidates && // 여기서 null 인지 체크합니다.
+          candidates.map((candidate) => {
+            return (
+              <Member
+                key={candidate.GIHO}
+                giho={candidate.GIHO}
+                name={candidate.NAME}
+                jd_name={candidate.JD_NAME}
+                age={candidate.AGE}
+              />
+            );
+          })}
       </Bottom>
     </Container>
   );
 }
+
+Home.propTypes = {
+  candidates: PropTypes.array,
+};
+
+Member.propTypes = {
+  giho: PropTypes.string,
+  name: PropTypes.string,
+  jd_name: PropTypes.string,
+  age: PropTypes.string,
+};
 
 export default Home;
