@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-import Header from './Header';
 import booth from './asset/image/booth.png';
 
 const Container = styled.div`
@@ -113,7 +112,6 @@ function Member({ giho, name, jd_name, age }) {
 function Home({ candidates }) {
   return (
     <Container>
-      <Header />
       <Top>
         <Column>
           <h1>16대 지방선거</h1>
