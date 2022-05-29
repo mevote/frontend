@@ -15,7 +15,7 @@ const getURL = (num) => {
       'fNVaZSTTtInMZqbG%2FJ79DJZf2PWxdOyLsnFdRTD93l8nUnq4PTCu6Oz%2FPb7o2iRN6w%2BvDO34ex%2Bh85ICbUISCg%3D%3D';
     let si = encodeURIComponent('서울특별시');
     let gu = encodeURIComponent('마포구');
-    queryParams += '&' + encodeURIComponent('sgTypecode') + '=' + encodeURIComponent('4'); // 여기 번호를 수정해주면 됩니다.
+    queryParams += '&' + encodeURIComponent('sgTypecode') + '=' + encodeURIComponent(num); // 여기 번호를 수정해주면 됩니다.
     queryParams += '&' + encodeURIComponent('sdName') + '=' + si;
     queryParams += '&' + encodeURIComponent('sggName') + '=' + gu;
     queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1');
@@ -31,7 +31,7 @@ const getURL = (num) => {
       'fNVaZSTTtInMZqbG%2FJ79DJZf2PWxdOyLsnFdRTD93l8nUnq4PTCu6Oz%2FPb7o2iRN6w%2BvDO34ex%2Bh85ICbUISCg%3D%3D';
 
     let si = encodeURIComponent('서울특별시');
-    queryParams += '&' + encodeURIComponent('sgTypecode') + '=' + encodeURIComponent('4'); // 여기 번호를 수정해주면 됩니다.
+    queryParams += '&' + encodeURIComponent('sgTypecode') + '=' + encodeURIComponent(num); // 여기 번호를 수정해주면 됩니다.
     queryParams += '&' + encodeURIComponent('sdName') + '=' + si;
     queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1');
     queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('10');

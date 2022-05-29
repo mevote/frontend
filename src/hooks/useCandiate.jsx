@@ -15,6 +15,8 @@ function useCandidate(num) {
     const fetchCandidate = async () => {
       const URL = getURL(num);
       const json = await customFetch(URL);
+      console.log(json);
+
       setCandidates([...json.getPofelcddRegistSttusInfoInqire.item]); // 4번일 때
     };
     fetchCandidate();
