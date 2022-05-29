@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import Header from '../Header';
+import predicttitle from '../asset/image/predicttitle.jpg'
 
 const Container = styled.div`
   display: flex;
@@ -13,36 +14,65 @@ const Container = styled.div`
 `;
 
 const TitleImage = styled.div`
+    margin-top: 10px;
     display: flex;
+`;
+const ElectionTitle = styled.div`
+    font-size: 25px;
+    font-weight: bold;
 `;
 
 const Election = styled.div`
     background-color: lightgrey;
     height: 10vh;
     width: 96%;
-    padding-top:20px;
+    padding-top:0;
     text-align: center;
     font-size: 30px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 0px;
+    margin-bottom: 20px;
 `;
+
+const StyledButton = styled.button`
+    margin: 0;
+    background-color: lightgrey;
+    text-align: center;
+    width: 47.5%;
+    font-size: 30px;
+    height: 100%;
+    &:hover {background-color: grey;};
+    
+`;
+
+
+/*function Button(children) {
+    return <StyledButton>{children}</StyledButton>;
+}*/
 
 function Predict() {
     return (
         <Container>
           <Header />          
-          <TitleImage>사진</TitleImage>
+          <TitleImage><img src={predicttitle}/></TitleImage>
+          <ElectionTitle>국회의원 선거</ElectionTitle>
           <Election>
-              후보 1 vs 후보 2
+            <StyledButton>후보 1</StyledButton> vs <StyledButton>후보 2</StyledButton> 
+            </Election>
+            <ElectionTitle>시·도지사 선거</ElectionTitle>
+          <Election>
+              <StyledButton>후보 1</StyledButton> vs <StyledButton>후보 2</StyledButton>
           </Election>
+          <ElectionTitle>구·시·군의 장 선거</ElectionTitle>
           <Election>
-              후보 1 vs 후보 2
+            <StyledButton>후보 1</StyledButton> vs <StyledButton>후보 2</StyledButton>
           </Election>
+          <ElectionTitle>시·도의회의원 선거</ElectionTitle>
           <Election>
-              후보 1 vs 후보 2
+            <StyledButton>후보 1</StyledButton> vs <StyledButton>후보 2</StyledButton>
           </Election>
+          <ElectionTitle>교육감 선거</ElectionTitle>
           <Election>
-              후보 1 vs 후보 2
+            <StyledButton>후보 1</StyledButton> vs <StyledButton>후보 2</StyledButton>
           </Election>
         </Container>        
       );
