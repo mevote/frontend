@@ -37,7 +37,6 @@ const getURL = (num) => {
     queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('10');
     queryParams += '&' + encodeURIComponent('resultType') + '=' + encodeURIComponent('json');
     queryParams += '&' + encodeURIComponent('serviceKey') + '=' + serviceKey;
-    console.log(url + queryParams);
 
     return url + queryParams;
   }
