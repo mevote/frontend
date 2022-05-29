@@ -2,20 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Reset from './styles/Reset';
-// import Home from './Home';
-import HomePage from './Homepage';
-import CandidateInformationpage from './Candidate/CandidateInformationpage';
-import CandidatePromisepage from './Candidate/CandidatePromisepage';
-import Polls from './Polls';
+import HomePage from './pages/Homepage';
+import CandidatePage from './pages/CandidatePage';
+import PollsPage from './pages/PollsPage';
+import PromisePage from './pages/Promisepage';
 
 ReactDOM.render(
   <BrowserRouter>
     <Reset />
     <Routes>
       <Route path="/" element={<HomePage />} />
-      <Route path="/candidateInformation" element={<CandidateInformationpage />} />
-      <Route path="/candidatePromise" element={<CandidatePromisepage />} />
-      <Route path="/polls" element={<Polls />} />
+      <Route path="/candidate" element={<CandidatePage />} />
+      <Route path="/polls" element={<PollsPage />} />
+      <Route path="/promise" element={<PromisePage />} />
     </Routes>
   </BrowserRouter>,
   document.getElementById('root'),

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import styled from '@emotion/styled';
-import Header from './Header';
 import booth from './asset/image/booth.png';
 
 const Container = styled.div`
@@ -113,7 +113,6 @@ function Member({ giho, name, jd_name, age }) {
 function Home({ candidates }) {
   return (
     <Container>
-      <Header />
       <Top>
         <Column>
           <h1>16대 지방선거</h1>
@@ -121,14 +120,16 @@ function Home({ candidates }) {
           <h1>선거 투표일 D-15</h1>
         </Column>
         <Column>
-          <img src={booth} width="180" height="180" alt="booth" />
-          <p>투표하러가기</p>
+          <Link to="/polls">
+            <img src={booth} width="180" height="180" alt="booth" />
+            <p>투표하러가기</p>{' '}
+          </Link>
         </Column>
       </Top>
       <Middle>
         <div>
           <h1>마포구</h1>
-          <p> 국회의원 선거 후보 5 명</p>
+          <p> 국회의원 선거 후보 {candidates && candidates.length} 명</p>
         </div>
       </Middle>
       <Bottom>
@@ -136,7 +137,7 @@ function Home({ candidates }) {
           candidates.map((candidate) => {
             return (
               <Member
-                key={candidate.GIHO}
+                key={candidate.NUM}
                 giho={candidate.GIHO}
                 name={candidate.NAME}
                 jd_name={candidate.JD_NAME}

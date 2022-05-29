@@ -14,25 +14,25 @@ const Container = styled.div`
 const BriefInformationContainer = styled.div`
   display: flex;
   align-items: center;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin: 10px;
   background-color: rgb(255, 0, 0);
-  height: 20vh;
-  border-radius: 25px;
+  border-radius: 15px;
 `;
 
 const BriefInformation = styled.div`
   margin: auto;
-  font-size: 36px;
   color: white;
+  text-align: center;
+
+  h2 {
+    font-size: 20px;
+  }
 `;
 
 const CandidatePicture = styled.div`
-  margin: auto;
-  width: 10em;
-  height: 10em;
+  margin: 15px auto;
+  width: 4em;
+  height: 4em;
   border-radius: 50px;
   background-color: White;
 `;
@@ -40,39 +40,28 @@ const CandidatePicture = styled.div`
 const DetailedInformationContainer = styled.div`
   display: flex;
   flex-direction: column;
+  margin: 0px 10px;
   justify-content: center;
-  border-style: solid;
-  margin-left: 20px;
-  margin-right: 20px;
-  height: 60vh;
-  border-radius: 50px;
-`;
-
-const DetailedInformation = styled.div`
-  font-size: 50px;
-  text-align: left;
-  margin-left: 40px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  border: 1px solid;
+  border-radius: 15px;
+  padding: 15px;
 `;
 
 // 후보 정보 페이지
-
 const HuboInfo = ({ jd_name, name, birthday, age, addr, edu }) => {
-  console.log('hi');
   return (
     <div>
       <BriefInformationContainer>
         <BriefInformation>
-          {jd_name} <br /> {name}
+          <p>{jd_name}</p> <br /> <h2>{name}</h2>
         </BriefInformation>
         <CandidatePicture>사진</CandidatePicture>
       </BriefInformationContainer>
       <DetailedInformationContainer>
-        <DetailedInformation>생년월일: {birthday}</DetailedInformation>
-        <DetailedInformation>연령: {age}</DetailedInformation>
-        <DetailedInformation>주소: {addr}</DetailedInformation>
-        <DetailedInformation>학력: {edu}</DetailedInformation>
+        <p>생년월일: {birthday}</p>
+        <p>연령: {age}</p>
+        <p>주소: {addr}</p>
+        <p>학력: {edu}</p>
       </DetailedInformationContainer>
     </div>
   );

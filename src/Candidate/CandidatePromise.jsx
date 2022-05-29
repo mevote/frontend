@@ -12,7 +12,6 @@ const Container = styled.div`
 `;
 
 /* 
-
 const PromiseContainer = styled.div`
   display: flex;
   flex-direction: column;

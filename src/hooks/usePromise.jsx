@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import useAPI from './useAPI';
-
 // - 2번: 국회의원 선거
 // - 3번: 시 도지사 선거
 // - 4번 : 구,시,군의 장 선거
