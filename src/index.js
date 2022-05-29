@@ -5,6 +5,7 @@ import Reset from './styles/Reset';
 // import Home from './Home';
 import HomePage from './Homepage';
 import CandidateInformationpage from './Candidate/CandidateInformationpage';
+import CandidatePromisepage from './Candidate/CandidatePromisepage';
 import Polls from './Polls';
 
 ReactDOM.render(
@@ -12,7 +13,8 @@ ReactDOM.render(
     <Reset />
     <Routes>
       <Route path="/" element={<HomePage />} />
-      <Route path="/candidateinformation" element={<CandidateInformationpage />} />
+      <Route path="/candidateInformation" element={<CandidateInformationpage />} />
+      <Route path="/candidatePromise" element={<CandidatePromisepage />} />
       <Route path="/polls" element={<Polls />} />
     </Routes>
   </BrowserRouter>,
