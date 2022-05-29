@@ -18,6 +18,7 @@ const TitleImage = styled.div`
     display: flex;
 `;
 const ElectionTitle = styled.div`
+    
     font-size: 25px;
     font-weight: bold;
 `;

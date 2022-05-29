@@ -11,7 +11,6 @@ import Pollsinfo from './Pollscomponent/Pollsinfo';
 
 const Container = styled.div`
   display: flex;
-  position: absolute;
   top: 0;
   left: 0;
   max-width: 1020px;
