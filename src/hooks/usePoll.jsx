@@ -1,12 +1,11 @@
 import { useEffect, useState } from 'react';
 import useAPI from './useAPI';
-
 /*
-    // 요청 정보
-    // sgid : 선거ID
-    // sgName : 시도명
-    // wiwName : 위원회명
-    */
+  요청 정보
+  sgid : 선거ID
+  sgName : 시도명
+  wiwName : 위원회명
+*/
 
 function usePolls() {
   const { customFetch } = useAPI();

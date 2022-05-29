@@ -137,7 +137,7 @@ function Home({ candidates }) {
           candidates.map((candidate) => {
             return (
               <Member
-                key={candidate.GIHO}
+                key={candidate.NUM}
                 giho={candidate.GIHO}
                 name={candidate.NAME}
                 jd_name={candidate.JD_NAME}
