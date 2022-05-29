@@ -4,7 +4,7 @@ import Header from '../Header';
 import Home from '../Home';
 
 function HomePage() {
-  const { candidates } = useCandidate();
+  const { candidates } = useCandidate(5);
   return (
     <>
       <Header />
