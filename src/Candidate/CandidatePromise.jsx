@@ -57,7 +57,7 @@ function CandidatePromise({ candidates }) {
           candidates.map((candidate) => {
             return (
               <HuboInfo
-                key={candidate}
+                key={candidate.NUM}
                 p1={candidate.prmmCont1}
                 p2={candidate.prmmCont3}
                 p3={candidate.prmmCont3}

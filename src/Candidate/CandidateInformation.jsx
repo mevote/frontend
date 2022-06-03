@@ -77,7 +77,7 @@ const CandidateInformation = ({ candidates }) => {
           candidates.map((candidate) => {
             return (
               <HuboInfo
-                key={candidate.JD_NAME}
+                key={candidate.NUM}
                 jd_name={candidate.JD_NAME}
                 name={candidate.NAME}
                 birthday={candidate.BIRTHDAY}
