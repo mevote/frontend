@@ -6,7 +6,6 @@ import useAPI from './useAPI';
   sgName : 시도명
   wiwName : 위원회명
 */
-
 function usePolls() {
   const { customFetch } = useAPI();
   const [prePolls, setPrePolls] = useState();
@@ -34,7 +33,6 @@ function usePolls() {
     const fetchMainPolls = async () => {
       const URL = url2 + queryParams;
       const json = await customFetch(URL);
-      console.log(json);
       setMainPolls([...json.getPolplcOtlnmapTrnsportInfoInqire.item]);
     };
 

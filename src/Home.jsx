@@ -109,8 +109,53 @@ function Member({ giho, name, jd_name, age }) {
     </>
   );
 }
+// - 2번: 국회의원 선거
+// - 3번: 시 도지사 선거  // 서울특별시 까지 요청
+// - 4번 : 구,시,군의 장 선거 // 서울특별시 마포구 까지 요청
+// - 5번 : 시·도의회의원선거 // 서울특별시 마포구 까지 요청, SGG_NAME 추가로 표기(마포구제1선거구)
+// - 11번 : 교육감선거   // 서울특별시 까지 요청
 
-function Home({ candidates }) {
+const getLocation = () => {
+  let lat, long;
+  if (navigator.geolocation) {
+    // GPS를 지원하면
+    navigator.geolocation.getCurrentPosition(
+      function (position) {
+        lat = position.coords.latitude;
+        long = position.coords.longitude;
+        alert('위도 : ' + lat + ' 경도 : ' + long);
+      },
+      function (error) {
+        console.error(error);
+      },
+      {
+        enableHighAccuracy: false,
+        maximumAge: 0,
+        timeout: Infinity,
+      },
+    );
+  } else {
+    alert('GPS를 지원하지 않습니다');
+    return;
+  }
+};
+
+function Home({ candidates, num }) {
+  getLocation();
+  let sg_type = [
+    null,
+    null,
+    '국회의원',
+    '시 도지사',
+    '구,시,군의 장',
+    '시·도의회의원',
+    null,
+    null,
+    null,
+    null,
+    '교육감',
+  ];
+  sg_type = sg_type[num];
   return (
     <Container>
       <Top>
@@ -129,7 +174,10 @@ function Home({ candidates }) {
       <Middle>
         <div>
           <h1>마포구</h1>
-          <p> 국회의원 선거 후보 {candidates && candidates.length} 명</p>
+          <p>
+            {' '}
+            {sg_type} 선거 후보 {candidates && candidates.length} 명
+          </p>
         </div>
       </Middle>
       <Bottom>
@@ -152,6 +200,7 @@ function Home({ candidates }) {
 
 Home.propTypes = {
   candidates: PropTypes.array,
+  num: PropTypes.number,
 };
 
 Member.propTypes = {

@@ -3,7 +3,7 @@ import useCandidate from '../hooks/useCandiate';
 import CandidateInformation from '../Candidate/CandidateInformation';
 
 function CandidatePage() {
-  const { candidates } = useCandidate('5');
+  const { candidates } = useCandidate(5);
 
   return <CandidateInformation candidates={candidates} />;
 }

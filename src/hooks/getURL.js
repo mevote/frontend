@@ -1,3 +1,5 @@
+import { SONGU_SERVICE_KEY } from '../keys';
+
 // 이후에 시와 구를 파라미터로 받도록 기능 개선 예정
 const getURL = (num) => {
   /*
@@ -11,11 +13,10 @@ const getURL = (num) => {
   if (num == 4 || num == 5) {
     let url = 'http://apis.data.go.kr/9760000/PofelcddInfoInqireService/getPofelcddRegistSttusInfoInqire';
     let queryParams = '?' + encodeURIComponent('sgId') + '=' + encodeURIComponent(20220601);
-    let serviceKey =
-      'fNVaZSTTtInMZqbG%2FJ79DJZf2PWxdOyLsnFdRTD93l8nUnq4PTCu6Oz%2FPb7o2iRN6w%2BvDO34ex%2Bh85ICbUISCg%3D%3D';
+    let serviceKey = SONGU_SERVICE_KEY;
     let si = encodeURIComponent('서울특별시');
     let gu = encodeURIComponent('마포구');
-    queryParams += '&' + encodeURIComponent('sgTypecode') + '=' + encodeURIComponent('4'); // 여기 번호를 수정해주면 됩니다.
+    queryParams += '&' + encodeURIComponent('sgTypecode') + '=' + encodeURIComponent(num); // 여기 번호를 수정해주면 됩니다.
     queryParams += '&' + encodeURIComponent('sdName') + '=' + si;
     queryParams += '&' + encodeURIComponent('sggName') + '=' + gu;
     queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1');
@@ -27,17 +28,15 @@ const getURL = (num) => {
   } else if (num == 3 || num == 11) {
     let url = 'http://apis.data.go.kr/9760000/PofelcddInfoInqireService/getPofelcddRegistSttusInfoInqire';
     let queryParams = '?' + encodeURIComponent('sgId') + '=' + encodeURIComponent(20220601);
-    let serviceKey =
-      'fNVaZSTTtInMZqbG%2FJ79DJZf2PWxdOyLsnFdRTD93l8nUnq4PTCu6Oz%2FPb7o2iRN6w%2BvDO34ex%2Bh85ICbUISCg%3D%3D';
+    let serviceKey = SONGU_SERVICE_KEY;
 
     let si = encodeURIComponent('서울특별시');
-    queryParams += '&' + encodeURIComponent('sgTypecode') + '=' + encodeURIComponent('4'); // 여기 번호를 수정해주면 됩니다.
+    queryParams += '&' + encodeURIComponent('sgTypecode') + '=' + encodeURIComponent(num); // 여기 번호를 수정해주면 됩니다.
     queryParams += '&' + encodeURIComponent('sdName') + '=' + si;
     queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1');
     queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('10');
     queryParams += '&' + encodeURIComponent('resultType') + '=' + encodeURIComponent('json');
     queryParams += '&' + encodeURIComponent('serviceKey') + '=' + serviceKey;
-    console.log(url + queryParams);
 
     return url + queryParams;
   }

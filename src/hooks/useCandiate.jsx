@@ -19,7 +19,6 @@ function useCandidate(num) {
     };
     fetchCandidate();
   }, []);
-
   return { candidates };
 }
 
