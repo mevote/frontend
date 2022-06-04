@@ -114,9 +114,10 @@ const funResult = () => {
   {
     result++;
   }
-  const str="홍길동님의 적중률은 "+(result/5)*100+"% 입니다."
+  const perResult = result/5*100;
+  const str="홍길동님의 적중률은 "+perResult+"% 입니다."
   if(Votetot==5)
-  {window.alert(str);
+  {
     Vote1=false;
     Vote2=false;
     Vote3=false;
@@ -131,7 +132,10 @@ const funResult = () => {
     document.getElementById("41").style.backgroundColor="lightgrey";
     document.getElementById("42").style.backgroundColor="lightgrey";
     document.getElementById("51").style.backgroundColor="lightgrey";
-    document.getElementById("52").style.backgroundColor="lightgrey";}
+    document.getElementById("52").style.backgroundColor="lightgrey";
+    window.alert(str);
+    return str;
+}
   else{window.alert("투표하지 않은 항목이 있습니다. 다시 투표해주세요.")}
   result = 0;
   Votetot = 0;
