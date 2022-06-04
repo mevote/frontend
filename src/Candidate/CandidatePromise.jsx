@@ -20,33 +20,6 @@ const DetailedPromise = styled.div`
   white-space: pre-wrap;
 `;
 
-// tts service key
-// 086659abbee941cda0bb9d7594bc8581
-
-/*
- * api 사이트
- * https://rapidapi.com/voicerss/api/text-to-speech-1/
- * https://www.voicerss.org/api/
- *
- * 자바스크립트 예시 코드
- * https://codepen.io/SitePoint/pen/JRaLVR
- */
-
-/*
-async function foo() {
-  let url = 'https://api.voicerss.org/?';
-  let key = '086659abbee941cda0bb9d7594bc8581';
-  let queryParams = encodeURIComponent('key') + '=' + key;
-  let str = encodeURIComponent('안녕하세요\n감사합니다.');
-  queryParams += '&' + encodeURIComponent('src') + '=' + str;
-  queryParams += '&' + encodeURIComponent('hl') + '=' + encodeURIComponent('ko-kr');
-  queryParams += '&' + encodeURIComponent('c') + '=' + encodeURIComponent('mp3');
-
-  // let response = await fetch(url + queryParams);
-  console.log(url + queryParams);
-}
-*/
-
 // 후보 공약 페이지
 
 const HuboInfo = ({ p1, p2, p3, p4, p5 }) => {
