@@ -14,7 +14,7 @@ function HomePage() {
   return (
     <>
       <Header />
-      <Home candidates={candidates} num={4} />;
+      <Home candidates={candidates} num={5} />;
     </>
   );
 }

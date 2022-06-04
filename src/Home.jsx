@@ -135,8 +135,8 @@ function Home({ candidates, num }) {
       <Top>
         <Column>
           <h1>16대 지방선거</h1>
-          <h1>사전투표일 D-70</h1>
-          <h1>선거 투표일 D-15</h1>
+          <h1>사전투표일 5.7~5.28</h1>
+          <h1>선거 투표일 6.1</h1>
         </Column>
         <Column>
           <Link to="/polls">
@@ -149,7 +149,6 @@ function Home({ candidates, num }) {
         <div>
           <h1>마포구</h1>
           <p>
-            {' '}
             {sg_type} 선거 후보 {candidates && candidates.length} 명
           </p>
         </div>

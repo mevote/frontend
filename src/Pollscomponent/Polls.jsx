@@ -74,7 +74,6 @@ function Poll({ ps_name, addr, place_name, isPre }) {
 }
 
 function Polls({ prePolls, mainPolls }) {
-  console.log('HRE', prePolls, mainPolls);
   return (
     <Container>
       <Bottom>

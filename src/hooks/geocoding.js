@@ -31,7 +31,7 @@ const run = async () => {
 
   const address = await Geocode.fromLatLng(lat, lon).then((response) => {
     const address = response.results[0].formatted_address;
-    console.log('현재 주소', address);
+    // console.log('현재 주소', address);
     return address.split(' ');
   });
 

@@ -32,7 +32,6 @@ const getURL = (num, si, gu) => {
     let url = 'http://apis.data.go.kr/9760000/PofelcddInfoInqireService/getPofelcddRegistSttusInfoInqire';
     let queryParams = '?' + encodeURIComponent('sgId') + '=' + encodeURIComponent(20220601);
     let serviceKey = SONGU_SERVICE_KEY;
-
     let si = encodeURIComponent(seoul);
     queryParams += '&' + encodeURIComponent('sgTypecode') + '=' + encodeURIComponent(num); // 여기 번호를 수정해주면 됩니다.
     queryParams += '&' + encodeURIComponent('sdName') + '=' + si;
@@ -42,6 +41,22 @@ const getURL = (num, si, gu) => {
     queryParams += '&' + encodeURIComponent('serviceKey') + '=' + serviceKey;
 
     return url + queryParams;
+  } else if (num == 0) {
+    let url1 = 'http://apis.data.go.kr/9760000/PolplcInfoInqireService2/getPrePolplcOtlnmapTrnsportInfoInqire';
+    let url2 = 'http://apis.data.go.kr/9760000/PolplcInfoInqireService2/getPolplcOtlnmapTrnsportInfoInqire';
+    let serviceKey = SONGU_SERVICE_KEY;
+    let si = encodeURIComponent(seoul);
+    let gu = encodeURIComponent(mapo);
+
+    let queryParams = '?' + encodeURIComponent('serviceKey') + '=' + serviceKey;
+    queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1');
+    queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('10');
+    queryParams += '&' + encodeURIComponent('sgId') + '=' + encodeURIComponent('20220601');
+    queryParams += '&' + encodeURIComponent('sdName') + '=' + si;
+    queryParams += '&' + encodeURIComponent('wiwName') + '=' + gu;
+    queryParams += '&' + encodeURIComponent('resultType') + '=' + encodeURIComponent('json');
+
+    return [url1 + queryParams, url2 + queryParams];
   }
 };
 

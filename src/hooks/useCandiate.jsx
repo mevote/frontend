@@ -15,10 +15,9 @@ function useCandidate(num) {
   useEffect(() => {
     const fetchCandidate = async () => {
       const address = await run();
-      console.log(address);
       const URL = getURL(num, address[1], address[2]);
       const json = await customFetch(URL);
-      setCandidates([...json.getPofelcddRegistSttusInfoInqire.item]); // 4번일 때
+      setCandidates([...json.getPofelcddRegistSttusInfoInqire.item]);
     };
     fetchCandidate();
   }, []);
