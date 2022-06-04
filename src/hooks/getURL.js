@@ -1,7 +1,7 @@
 import { SONGU_SERVICE_KEY } from '../keys';
 
 // 이후에 시와 구를 파라미터로 받도록 기능 개선 예정
-const getURL = (num) => {
+const getURL = (num, si, gu) => {
   /*
   후보자 정보 조회 API
    - 2번: 국회의원 선거
@@ -10,12 +10,15 @@ const getURL = (num) => {
    - 5번 : 시·도의회의원선거 // 서울특별시 마포구 까지 요청, SGG_NAME 추가로 표기(마포구제1선거구)
    - 11번 : 교육감선거   // 서울특별시 까지 요청
   */
+  const seoul = si;
+  const mapo = gu;
+
   if (num == 4 || num == 5) {
     let url = 'http://apis.data.go.kr/9760000/PofelcddInfoInqireService/getPofelcddRegistSttusInfoInqire';
     let queryParams = '?' + encodeURIComponent('sgId') + '=' + encodeURIComponent(20220601);
     let serviceKey = SONGU_SERVICE_KEY;
-    let si = encodeURIComponent('서울특별시');
-    let gu = encodeURIComponent('마포구');
+    let si = encodeURIComponent(seoul);
+    let gu = encodeURIComponent(mapo);
     queryParams += '&' + encodeURIComponent('sgTypecode') + '=' + encodeURIComponent(num); // 여기 번호를 수정해주면 됩니다.
     queryParams += '&' + encodeURIComponent('sdName') + '=' + si;
     queryParams += '&' + encodeURIComponent('sggName') + '=' + gu;
@@ -30,7 +33,7 @@ const getURL = (num) => {
     let queryParams = '?' + encodeURIComponent('sgId') + '=' + encodeURIComponent(20220601);
     let serviceKey = SONGU_SERVICE_KEY;
 
-    let si = encodeURIComponent('서울특별시');
+    let si = encodeURIComponent(seoul);
     queryParams += '&' + encodeURIComponent('sgTypecode') + '=' + encodeURIComponent(num); // 여기 번호를 수정해주면 됩니다.
     queryParams += '&' + encodeURIComponent('sdName') + '=' + si;
     queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1');
