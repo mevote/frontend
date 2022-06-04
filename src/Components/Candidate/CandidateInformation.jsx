@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import Header from '../Header';
-import Navigator from '../Navigator';
+import Navigator from '../../Navigator';
 import PropTypes from 'prop-types';
 
 const Container = styled.div`

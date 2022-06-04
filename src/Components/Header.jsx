@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import check from './asset/image/check.png';
-import menu from './asset/image/menu.png';
+import check from '../asset/image/check.png';
+import menu from '../asset/image/menu.png';
 
 const Container = styled.div`
   display: flex;
@@ -40,7 +40,7 @@ function Header() {
     <Container>
       <Blank />
       <Location>
-        대치 1동 <img src={check} width="24" height="24" alt="button" />
+        망원 1동 <img src={check} width="24" height="24" alt="button" />
       </Location>
       <Menu>
         <img src={menu} width="24" height="24" alt="button" />
