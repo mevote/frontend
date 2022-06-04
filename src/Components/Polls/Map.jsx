@@ -1,9 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { RenderAfterNavermapsLoaded, NaverMap } from 'react-naver-maps';
+import { RenderAfterNavermapsLoaded, NaverMap, Marker } from 'react-naver-maps';
 
-function NaverMapAPI({ latlng }) {
+function NaverMapAPI({ latlng, latlngArray }) {
   console.log(latlng);
+  console.log(latlngArray);
+
+  const navermaps = window.naver.maps;
   return (
     <NaverMap
       mapDivId={'react-naver-map'}
@@ -15,15 +18,36 @@ function NaverMapAPI({ latlng }) {
       defaultZoom={17}
       minZoom={14}
       maxZoom={20}
-      zoomControl={true}></NaverMap>
+      zoomControl={true}>
+      {latlngArray &&
+        latlngArray.map((latlng, index) => {
+          return (
+            <Marker
+              key={index}
+              position={new navermaps.LatLng(latlng)}
+              animation={1} // 0 1 2 choice!
+              onClick={() => {
+                alert('현재 위치.');
+              }}
+            />
+          );
+        })}
+      <Marker
+        key={21}
+        position={new navermaps.LatLng(latlng)}
+        animation={1} // 0 1 2 choice!
+        onClick={() => {
+          alert('현재 위치.');
+        }}
+      />
+    </NaverMap>
   );
 }
 
-function Map({ latlng }) {
-  console.log(latlng);
+function Map({ latlng, latlngArray }) {
   return (
     <RenderAfterNavermapsLoaded ncpClientId={'zsnkdm77ah'} error={<div>Error!</div>} loading={<div>Loading...</div>}>
-      <NaverMapAPI latlng={latlng} />
+      <NaverMapAPI latlng={latlng} latlngArray={latlngArray} />
     </RenderAfterNavermapsLoaded>
   );
 }
@@ -34,8 +58,10 @@ export default Map;
 
 NaverMapAPI.propTypes = {
   latlng: PropTypes.object,
+  latlngArray: PropTypes.array,
 };
 
 Map.propTypes = {
   latlng: PropTypes.object,
+  latlngArray: PropTypes.array,
 };

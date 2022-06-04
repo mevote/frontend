@@ -6,21 +6,23 @@ import Map from '../Components/Polls/Map';
 import { getCoordinate } from '../hooks/geocoding';
 
 function PollsPage() {
-  const { prePolls, mainPolls } = usePolls();
+  const { latlngArray, prePolls, mainPolls } = usePolls();
   const [location, setLocation] = useState();
 
+  const fetchData = async () => {
+    const { lat, lng } = await getCoordinate();
+    setLocation({ lat, lng });
+  };
+
   useEffect(() => {
-    const fetchCandidate = async () => {
-      const { lat, lng } = await getCoordinate();
-      setLocation({ lat, lng });
-    };
-    fetchCandidate();
-  }, []);
+    fetchData();
+    console.log(latlngArray);
+  }, [latlngArray]);
 
   return (
     <>
       <Header />
-      {location && <Map latlng={location} />}
+      {location && <Map latlng={location} latlngArray={latlngArray} />}
       <Polls prePolls={prePolls} mainPolls={mainPolls} />
     </>
   );
