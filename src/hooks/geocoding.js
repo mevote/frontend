@@ -1,4 +1,8 @@
 import Geocode from 'react-geocode';
+Geocode.setApiKey('AIzaSyC5xLfDXfz6s9-soQmiQmLHms6QKeXjJ6s');
+Geocode.setLanguage('ko');
+Geocode.setRegion('es');
+Geocode.enableDebug();
 
 const getPos = () => {
   return new Promise((resolve, reject) => {
@@ -22,20 +26,22 @@ const getCoordinate = async () => {
   }
 };
 
-const run = async () => {
+const getAddress = async () => {
   const { lat, lng } = await getCoordinate();
-  Geocode.setApiKey('AIzaSyC5xLfDXfz6s9-soQmiQmLHms6QKeXjJ6s');
-  Geocode.setLanguage('ko');
-  Geocode.setRegion('es');
-  Geocode.enableDebug();
 
   const address = await Geocode.fromLatLng(lat, lng).then((response) => {
-    const address = response.results[0].formatted_address;
-    // console.log('현재 주소', address);
-    return address.split(' ');
+    const x = response.results[0].formatted_address;
+    return x.split(' ');
   });
-
   return address;
 };
 
-export { run, getCoordinate };
+const getLatLng = async (address) => {
+  const latlng = await Geocode.fromAddress(address).then((response) => {
+    const { lat, lng } = response.results[0].geometry.location;
+    return { lat, lng };
+  });
+  return latlng;
+};
+
+export { getAddress, getCoordinate, getLatLng };
