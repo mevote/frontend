@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import useAPI from './useAPI';
 import getURL from './getURL';
-import run from './geocoding';
+import { run } from './geocoding';
 // - 2번: 국회의원 선거
 // - 3번: 시 도지사 선거  // 서울특별시 까지 요청
 // - 4번 : 구,시,군의 장 선거 // 서울특별시 마포구 까지 요청

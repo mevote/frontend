@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import getURL from './getURL';
 import useAPI from './useAPI';
-import run from './geocoding';
+import { run } from './geocoding';
 
 /*
   요청 정보
