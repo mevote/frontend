@@ -10,7 +10,7 @@ import Home from '../Components/Candidate/Home';
 
 function HomePage() {
   const { candidates } = useCandidate(3);
-
+  console.log(candidates);
   return (
     <>
       <Header />

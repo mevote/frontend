@@ -85,13 +85,6 @@ const Candidate = styled.div`
   }
 `;
 
-const Profile = styled.div`
-  width: 80px;
-  height: 80px;
-  border: 1px solid #595758;
-  border-radius: 50%;
-`;
-
 function Member({ giho, name, jd_name, age }) {
   return (
     <>
@@ -104,7 +97,6 @@ function Member({ giho, name, jd_name, age }) {
             {jd_name} {age}세
           </p>
         </Column>
-        <Profile />
       </Candidate>
     </>
   );
@@ -147,7 +139,7 @@ function Home({ candidates, num }) {
       </Top>
       <Middle>
         <div>
-          <h1>마포구</h1>
+          <h1>서대문구</h1>
           <p>
             {sg_type} 선거 후보 {candidates && candidates.length} 명
           </p>

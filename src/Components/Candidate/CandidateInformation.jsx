@@ -15,26 +15,15 @@ const BriefInformationContainer = styled.div`
   display: flex;
   align-items: center;
   margin: 10px;
-  background-color: rgb(255, 0, 0);
   border-radius: 15px;
 `;
 
 const BriefInformation = styled.div`
   margin: auto;
-  color: white;
-  text-align: center;
-
+  padding: 10px 0;
   h2 {
     font-size: 20px;
   }
-`;
-
-const CandidatePicture = styled.div`
-  margin: 15px auto;
-  width: 4em;
-  height: 4em;
-  border-radius: 50px;
-  background-color: White;
 `;
 
 const DetailedInformationContainer = styled.div`
@@ -45,6 +34,10 @@ const DetailedInformationContainer = styled.div`
   border: 1px solid;
   border-radius: 15px;
   padding: 15px;
+
+  h1 {
+    font-size: 20px;
+  }
 `;
 
 // 후보 정보 페이지
@@ -52,12 +45,12 @@ const HuboInfo = ({ jd_name, name, birthday, age, addr, edu }) => {
   return (
     <div>
       <BriefInformationContainer>
-        <BriefInformation>
-          <p>{jd_name}</p> <br /> <h2>{name}</h2>
-        </BriefInformation>
-        <CandidatePicture>사진</CandidatePicture>
+        <BriefInformation></BriefInformation>
       </BriefInformationContainer>
       <DetailedInformationContainer>
+        <h1>
+          {jd_name} {name}
+        </h1>
         <p>생년월일: {birthday}</p>
         <p>연령: {age}</p>
         <p>주소: {addr}</p>
