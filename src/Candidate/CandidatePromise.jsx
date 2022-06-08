@@ -11,18 +11,6 @@ const Container = styled.div`
   margin: auto;
 `;
 
-/* 
-const PromiseContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  border-style: solid;
-  marign: 20px;
-  height: 30vh;
-  border-radius: 50px;
-`;
-*/
-
 const DetailedPromise = styled.div`
   font-size: 20px;
   text-align: left;
@@ -35,7 +23,6 @@ const DetailedPromise = styled.div`
 // 후보 공약 페이지
 
 const HuboInfo = ({ p1, p2, p3, p4, p5 }) => {
-  console.log(p1);
   return (
     <div>
       <DetailedPromise>{p1}</DetailedPromise>
