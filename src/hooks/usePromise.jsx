@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import useAPI from './useAPI';
+import { SONGU_SERVICE_KEY } from '../keys';
 // - 2번: 국회의원 선거
 // - 3번: 시 도지사 선거
 // - 4번 : 구,시,군의 장 선거
@@ -14,17 +15,16 @@ function usePromise() {
   const [candidates, setCandidates] = useState();
 
   let url = 'http://apis.data.go.kr/9760000/ElecPrmsInfoInqireService/getCnddtElecPrmsInfoInqire';
-  let serviceKey =
-    'fNVaZSTTtInMZqbG%2FJ79DJZf2PWxdOyLsnFdRTD93l8nUnq4PTCu6Oz%2FPb7o2iRN6w%2BvDO34ex%2Bh85ICbUISCg%3D%3D';
+  let serviceKey = SONGU_SERVICE_KEY;
 
   let str1 = encodeURIComponent('서울특별시');
   let str2 = encodeURIComponent('마포구');
   let queryParams = '?' + encodeURIComponent('sgId') + '=' + encodeURIComponent(20220601);
-  queryParams += '&' + encodeURIComponent('sgTypecode') + '=' + encodeURIComponent('4'); // 여기 번호를 수정해주면 됩니다.
+  queryParams += '&' + encodeURIComponent('sgTypecode') + '=' + encodeURIComponent('3'); // 여기 번호를 수정해주면 됩니다.
   queryParams += '&' + encodeURIComponent('sdName') + '=' + str1;
   queryParams += '&' + encodeURIComponent('sggName') + '=' + str2;
   queryParams += '&' + encodeURIComponent('resultType') + '=' + encodeURIComponent('json');
-  queryParams += '&' + encodeURIComponent('cnddtId') + '=' + encodeURIComponent('100146514'); // 각 후보의 HUBOID
+  queryParams += '&' + encodeURIComponent('cnddtId') + '=' + encodeURIComponent('100149260'); // 각 후보의 HUBOID
   queryParams += '&' + encodeURIComponent('serviceKey') + '=' + serviceKey;
 
   useEffect(() => {
