@@ -1,10 +1,10 @@
 import React from 'react';
 import usePromise from '../hooks/usePromise';
-import CandidatePromiseVoice from '../Candidate/CandidatePromiseVoice';
+import Voice from '../Components/Promise/Voice';
 
 function PromiseVoicepage() {
   const { candidates } = usePromise();
-  return <CandidatePromiseVoice candidates={candidates} />;
+  return <Voice candidates={candidates} />;
 }
 
 export default PromiseVoicepage;

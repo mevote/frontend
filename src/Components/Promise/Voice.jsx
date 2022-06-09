@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 import Header from '../Header';
-import Navigator from '../Navigator';
+import Navigator from '../../Navigator';
 import PropTypes from 'prop-types';
 
 const Container = styled.div`
@@ -88,7 +88,7 @@ const HuboInfo = ({ p1, p2, p3, p4, p5 }) => {
   );
 };
 
-function CandidatePromise({ candidates }) {
+function Voice({ candidates }) {
   return (
     <Container>
       <Header />
@@ -112,7 +112,7 @@ function CandidatePromise({ candidates }) {
   );
 }
 
-CandidatePromise.propTypes = {
+Voice.propTypes = {
   candidates: PropTypes.array,
 };
 
@@ -128,7 +128,7 @@ Player.propTypes = {
   url: PropTypes.string,
 };
 
-export default CandidatePromise;
+export default Voice;
 
 // 086659abbee941cda0bb9d7594bc8581
 
