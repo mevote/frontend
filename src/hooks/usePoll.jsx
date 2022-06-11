@@ -19,14 +19,14 @@ function usePolls() {
   const fetchData = async () => {
     const address = await getAddress();
     const lat0 = await getLatLng('서울특별시 서대문구 연세로5나길 19 (창천동)');
-    const lat1 = await getLatLng('서울특별시 서대문구 연희로 189 (연희동)');
+    const lat1 = await getLatLng('서울특별시 마포구 만리재옛길 84 (공덕동)');
     const lat2 = await getLatLng('서울특별시 마포구 도화길 37 (도화동)');
-    const lat3 = await getLatLng('서울특별시 서대문구 북아현로22길 38 (북아현동)');
-    const lat4 = await getLatLng('서울특별시 서대문구 북아현로22길 38 (북아현동)');
+    const lat3 = await getLatLng('서울특별시 마포구 월드컵로5길 11 (합정동)');
+    const lat4 = await getLatLng('서울특별시 마포구 동교로15길 7 (서교동)');
     const lat5 = await getLatLng('서울특별시 서대문구 성산로 694 (영천동)');
     const lat6 = await getLatLng('서울특별시 서대문구 통일로34길 27 (홍제동)');
-    const lat7 = await getLatLng('서울특별시 서대문구 통일로27길 19 (홍제동)');
-    const lat8 = await getLatLng('서울특별시 서대문구 홍은중앙로 85 (홍은동)');
+    const lat7 = await getLatLng('서울특별시 마포구 독막로 165 (창전동)');
+    const lat8 = await getLatLng('서울특별시 마포구 신촌로26길 10 (노고산동)');
 
     const URL = getURL(0, address[1], address[2]);
     const json1 = await customFetch(URL[0]);

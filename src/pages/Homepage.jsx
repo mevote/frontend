@@ -9,12 +9,13 @@ import Home from '../Components/Candidate/Home';
 // - 11번 : 교육감선거   // 서울특별시 까지 요청
 
 function HomePage() {
-  const { candidates } = useCandidate(3);
+  const num = 3;
+  const { candidates } = useCandidate(num);
   console.log(candidates);
   return (
     <>
       <Header />
-      <Home candidates={candidates} num={3} />;
+      <Home candidates={candidates} num={num} />;
     </>
   );
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import Header from '../Header';
+import { Link } from 'react-router-dom';
 import Navigator from '../../Navigator';
 import PropTypes from 'prop-types';
 
@@ -48,9 +49,11 @@ const HuboInfo = ({ jd_name, name, birthday, age, addr, edu }) => {
         <BriefInformation></BriefInformation>
       </BriefInformationContainer>
       <DetailedInformationContainer>
-        <h1>
-          {jd_name} {name}
-        </h1>
+        <Link to="/voice">
+          <h1>
+            {jd_name} {name}
+          </h1>
+        </Link>
         <p>생년월일: {birthday}</p>
         <p>연령: {age}</p>
         <p>주소: {addr}</p>

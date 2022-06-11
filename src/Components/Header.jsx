@@ -40,7 +40,8 @@ function Header() {
     <Container>
       <Blank />
       <Location>
-        창천동 <img src={check} width="24" height="24" alt="button" />
+        망원동
+        <img src={check} width="24" height="24" alt="button" />
       </Location>
       <Menu>
         <img src={menu} width="24" height="24" alt="button" />

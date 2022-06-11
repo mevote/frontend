@@ -90,9 +90,11 @@ function Member({ giho, name, jd_name, age }) {
     <>
       <Candidate>
         <Column>
-          <h1>
-            {giho}. {name}
-          </h1>
+          <Link to="/candidate">
+            <h1>
+              {giho}. {name}
+            </h1>
+          </Link>
           <p>
             {jd_name} {age}세
           </p>
@@ -119,6 +121,7 @@ function Home({ candidates, num }) {
     null,
     null,
     null,
+    null,
     '교육감',
   ];
   sg_type = sg_type[num];
@@ -139,7 +142,7 @@ function Home({ candidates, num }) {
       </Top>
       <Middle>
         <div>
-          <h1>서대문구</h1>
+          <h1>마포구</h1>
           <p>
             {sg_type} 선거 후보 {candidates && candidates.length} 명
           </p>
@@ -154,8 +157,7 @@ function Home({ candidates, num }) {
                 giho={candidate.GIHO}
                 name={candidate.NAME}
                 jd_name={candidate.JD_NAME}
-                age={candidate.AGE}
-              />
+                age={candidate.AGE}></Member>
             );
           })}
       </Bottom>
