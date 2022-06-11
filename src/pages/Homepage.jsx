@@ -1,7 +1,7 @@
 import React from 'react';
 import useCandidate from '../hooks/useCandiate';
-import Header from '../Header';
-import Home from '../Home';
+import Header from '../Components/Header';
+import Home from '../Components/Candidate/Home';
 // - 2번: 국회의원 선거
 // - 3번: 시 도지사 선거  // 서울특별시 까지 요청
 // - 4번 : 구,시,군의 장 선거 // 서울특별시 마포구 까지 요청
@@ -9,12 +9,13 @@ import Home from '../Home';
 // - 11번 : 교육감선거   // 서울특별시 까지 요청
 
 function HomePage() {
-  const { candidates } = useCandidate(5);
-
+  const num = 3;
+  const { candidates } = useCandidate(num);
+  console.log(candidates);
   return (
     <>
       <Header />
-      <Home candidates={candidates} num={4} />;
+      <Home candidates={candidates} num={num} />;
     </>
   );
 }

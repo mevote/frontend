@@ -1,4 +1,8 @@
 import Geocode from 'react-geocode';
+Geocode.setApiKey('AIzaSyC5xLfDXfz6s9-soQmiQmLHms6QKeXjJ6s');
+Geocode.setLanguage('ko');
+Geocode.setRegion('es');
+Geocode.enableDebug();
 
 const getPos = () => {
   return new Promise((resolve, reject) => {
@@ -11,31 +15,33 @@ const getCoordinate = async () => {
     const position = await getPos();
     return {
       lat: position.coords.latitude,
-      lon: position.coords.longitude,
+      lng: position.coords.longitude,
     };
   } else {
     // Geolocation API에 액세스할 수 없으면 서울시청 좌표 리턴
     return {
-      lat: 37.566353,
-      lon: 126.977953,
+      lat: 37.5682617,
+      lng: 126.9395624,
     };
   }
 };
 
-const run = async () => {
-  const { lat, lon } = await getCoordinate();
-  Geocode.setApiKey('AIzaSyC5xLfDXfz6s9-soQmiQmLHms6QKeXjJ6s');
-  Geocode.setLanguage('ko');
-  Geocode.setRegion('es');
-  Geocode.enableDebug();
+const getAddress = async () => {
+  const { lat, lng } = await getCoordinate();
 
-  const address = await Geocode.fromLatLng(lat, lon).then((response) => {
-    const address = response.results[0].formatted_address;
-    console.log('현재 주소', address);
-    return address.split(' ');
+  const address = await Geocode.fromLatLng(lat, lng).then((response) => {
+    const x = response.results[0].formatted_address;
+    return x.split(' ');
   });
-
   return address;
 };
 
-export default run;
+const getLatLng = async (address) => {
+  const latlng = await Geocode.fromAddress(address).then((response) => {
+    const { lat, lng } = response.results[0].geometry.location;
+    return { lat, lng };
+  });
+  return latlng;
+};
+
+export { getAddress, getCoordinate, getLatLng };

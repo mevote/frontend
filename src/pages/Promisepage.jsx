@@ -1,10 +1,11 @@
 import React from 'react';
 import usePromise from '../hooks/usePromise';
-import CandidatePromise from '../Candidate/CandidatePromise';
+import Promise from '../Components/Promise/Promise';
 
 function Promisepage() {
   const { candidates } = usePromise();
-  return <CandidatePromise candidates={candidates} />;
+  console.log(candidates);
+  return <Promise candidates={candidates} />;
 }
 
 export default Promisepage;

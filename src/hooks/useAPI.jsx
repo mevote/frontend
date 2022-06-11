@@ -1,7 +1,10 @@
 function useAPI() {
   const customFetch = async (url) => {
     try {
+      console.log(url);
+
       const res = await fetch(url);
+      console.log(url);
       const json = await res.json();
       return json;
     } catch {

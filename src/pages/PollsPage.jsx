@@ -1,16 +1,29 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import usePolls from '../hooks/usePoll';
-import Polls from '../Pollscomponent/Polls';
-import Header from '../Header';
-import Map from '../Pollscomponent/Map';
+import Polls from '../Components/Polls/Polls';
+import Header from '../Components/Header';
+import Map from '../Components/Polls/Map';
+import { getCoordinate } from '../hooks/geocoding';
 
 function PollsPage() {
-  const { prePolls, mainPolls } = usePolls();
+  const { latlngArray, prePolls, mainPolls } = usePolls();
+  const [location, setLocation] = useState();
+
+  const fetchData = async () => {
+    const { lat, lng } = await getCoordinate();
+    setLocation({ lat, lng });
+  };
+
+  useEffect(() => {
+    fetchData();
+    console.log(latlngArray);
+  }, [latlngArray]);
+
   return (
     <>
       <Header />
-      <Map />
-      <Polls prePolls={prePolls} mainPolls={mainPolls} />;
+      {location && <Map latlng={location} latlngArray={latlngArray} />}
+      <Polls prePolls={prePolls} mainPolls={mainPolls} />
     </>
   );
 }

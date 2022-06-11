@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-import poll from '../asset/image/poll.png';
+import poll from '../../asset/image/poll.png';
 
 const Container = styled.div`
   display: flex;
@@ -74,7 +74,6 @@ function Poll({ ps_name, addr, place_name, isPre }) {
 }
 
 function Polls({ prePolls, mainPolls }) {
-  console.log('HRE', prePolls, mainPolls);
   return (
     <Container>
       <Bottom>
